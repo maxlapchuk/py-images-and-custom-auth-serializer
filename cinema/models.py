@@ -1,4 +1,5 @@
 import os.path
+import pathlib
 import uuid
 
 from django.core.exceptions import ValidationError
@@ -39,7 +40,7 @@ class Actor(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-def create_custom_path(instance: "Movie", filename: str):
+def create_custom_path(instance: "Movie", filename: str) -> os.O_PATH:
     _, extension = os.path.splitext(filename)
     return os.path.join(
         "uploads/movies/",
